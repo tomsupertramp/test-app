@@ -1,14 +1,30 @@
 import React from 'react';
-import { Navbar, NavItem, NavLink } from 'reactstrap';
+import {
+  Nav,
+  Navbar,
+  NavItem,
+  NavLink,
+  NavbarBrand,
+} from 'reactstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 const Header = () => (
-  <Navbar color="light" light>
-    <NavItem>
-      <NavLink href="/signup">Sign Up</NavLink>
-    </NavItem>
-    <NavItem>
-      <NavLink href="/login">Log In</NavLink>
-    </NavItem>
+  <Navbar color="light" light expand="md">
+    <LinkContainer to="/">
+      <NavbarBrand>WebShop</NavbarBrand>
+    </LinkContainer>
+    <Nav navbar>
+      <NavItem>
+        <LinkContainer to="/signup">
+          <NavLink>Sign Up</NavLink>
+        </LinkContainer>
+      </NavItem>
+      <NavItem>
+        <LinkContainer to="/login">
+          <NavLink href="/login">Log In</NavLink>
+        </LinkContainer>
+      </NavItem>
+    </Nav>
   </Navbar>
 );
 

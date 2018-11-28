@@ -1,4 +1,10 @@
+import { connect } from 'react-redux';
+
 /* Component */
 import AppComponent from './AppComponent';
 
-export default AppComponent;
+const mapStateToProps = ({ services: { isAuthenticated } }) => ({
+  isAuthenticated,
+});
+
+export default connect(mapStateToProps)(AppComponent);
