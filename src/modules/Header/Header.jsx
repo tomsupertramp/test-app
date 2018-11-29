@@ -9,7 +9,7 @@ import {
 import { LinkContainer } from 'react-router-bootstrap';
 
 const Header = () => (
-  <Navbar color="light" light expand="md">
+  <Navbar color="light" light expand="md" className="header">
     <LinkContainer to="/">
       <NavbarBrand>WebShop</NavbarBrand>
     </LinkContainer>

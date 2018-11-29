@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Tomato",
+    "color": "red",
+    "issueDate": "13",
+    "price": 5.05,
+    "raiting": 3.5,
+    "inStock": false,
+    "image": "132"
+  },
+  {
+    "id": 2,
+    "name": "Lemon",
+    "color": "yellow",
+    "issueDate": "13",
+    "price": 7.05,
+    "raiting": 3.5,
+    "inStock": true,
+    "image": "132"
+  },
+  {
+    "id": 3,
+    "name": "Orange",
+    "color": "orange",
+    "issueDate": "13",
+    "price": 1.05,
+    "raiting": 3.5,
+    "inStock": true,
+    "image": "132"
+  },
+  {
+    "id": 4,
+    "name": "Avocado",
+    "color": "green",
+    "issueDate": "13",
+    "price": 19.05,
+    "raiting": 3.5,
+    "inStock": false,
+    "image": "132"
+  }
+]
