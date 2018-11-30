@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import {
   Nav,
@@ -5,10 +6,15 @@ import {
   NavItem,
   NavLink,
   NavbarBrand,
+  Button,
 } from 'reactstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 
-const Header = () => (
+const propTypes = {
+  cartItemsCount: PropTypes.number,
+};
+
+const HeaderComponent = ({ cartItemsCount }) => (
   <Navbar color="light" light expand="md" className="header">
     <LinkContainer to="/">
       <NavbarBrand>WebShop</NavbarBrand>
@@ -25,7 +31,14 @@ const Header = () => (
         </LinkContainer>
       </NavItem>
     </Nav>
+    <Button className="ml-auto" color="success">
+      Cart:
+      {' '}
+      {cartItemsCount}
+    </Button>
   </Navbar>
 );
 
-export default Header;
+HeaderComponent.propTypes = propTypes;
+
+export default HeaderComponent;

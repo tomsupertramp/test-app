@@ -8,8 +8,8 @@ import AppContainer from './AppContainer';
 import * as serviceWorker from './serviceWorker';
 
 /* Styles */
-import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css';
 
 ReactDOM.render(
   <Provider store={store}>

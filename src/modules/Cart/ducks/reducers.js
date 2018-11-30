@@ -1,15 +1,15 @@
 import types from './types';
 
 const initialState = {
-  products: [],
+  items: [],
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case types.FETCH_PRODUCTS:
+    case types.UPDATE_CART:
       return {
         ...state,
-        products: action.products,
+        items: [...state.items, action.item],
       };
     default:
       return state;

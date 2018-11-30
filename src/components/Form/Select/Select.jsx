@@ -23,6 +23,7 @@ const FormSelect = ({
       type="select"
       {...field}
     >
+      <option value="">Select</option>
       <option>red</option>
       <option>yellow</option>
       <option>orange</option>

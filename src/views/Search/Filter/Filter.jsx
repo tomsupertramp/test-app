@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Col, Row, Button } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 import { withFormik } from 'formik';
+import { compose, lifecycle } from 'recompose';
+import { debounce, isEqual } from 'lodash';
 
 /* Components */
 import Form, {
@@ -34,32 +36,45 @@ const Filter = (props) => {
       </Row>
       <Row>
         <Col>
-          <Input label="Price from" name="priceFrom" />
+          <Input label="Price from" name="priceFrom" type="number" step="0.01" />
         </Col>
         <Col>
-          <Input label="Price to" name="priceTo" />
+          <Input label="Price to" name="priceTo" type="number" step="0.01" />
         </Col>
         <Col>
           <Select label="Color" name="color" />
         </Col>
       </Row>
-      <Button type="submit">Submit</Button>
     </Form>
   );
 };
 
 Filter.propTypes = propTypes;
 
-export default withFormik({
-  mapPropsToValues: () => ({
-    dateFrom: null,
-    dateTo: null,
-    inStock: false,
-    priceFrom: '',
-    priceTo: '',
-    color: '',
+export default compose(
+
+  withFormik({
+    mapPropsToValues: () => ({
+      dateFrom: null,
+      dateTo: null,
+      inStock: false,
+      priceFrom: '',
+      priceTo: '',
+      color: '',
+    }),
+    handleSubmit: (values, { props: { onSubmit } }) => {
+      onSubmit(values);
+    },
   }),
-  handleSubmit: (e, { props: { onSubmit } }) => {
-    onSubmit(e);
-  },
-})(Filter);
+  lifecycle({
+    componentWillReceiveProps(nextProps) {
+      const { values, onSubmit } = nextProps;
+      const autoSave = debounce(() => {
+        onSubmit(values);
+      }, 300);
+      if (!isEqual(values, this.props.values)) {
+        autoSave();
+      }
+    }
+  }),
+)(Filter);

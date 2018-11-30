@@ -7,10 +7,19 @@ import Card from '../Card';
 
 const propTypes = {
   products: PropTypes.array,
+  updateCart: PropTypes.func,
 };
 
-const Products = ({ products }) => (
-  <div>{map(products, item => <Card key={item.id} {...item} />)}</div>
+const Products = ({ products, updateCart }) => (
+  <div>
+    {map(products, item => (
+      <Card
+        key={item.id}
+        handleClick={() => updateCart(item)}
+        {...item}
+      />
+    ))}
+  </div>
 );
 
 Products.propTypes = propTypes;

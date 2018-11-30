@@ -10,9 +10,10 @@ import Products from './Products';
 const propTypes = {
   products: PropTypes.array,
   fetchProducts: PropTypes.func,
+  updateCart: PropTypes.func,
 };
 
-const SearchComponent = ({ products, fetchProducts }) => (
+const SearchComponent = ({ products, fetchProducts, updateCart }) => (
   <div>
     <Row>
       <Col>
@@ -21,7 +22,10 @@ const SearchComponent = ({ products, fetchProducts }) => (
     </Row>
     <Row>
       <Col>
-        <Products products={products} />
+        <Products
+          products={products}
+          updateCart={updateCart}
+        />
       </Col>
     </Row>
   </div>

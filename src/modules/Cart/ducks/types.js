@@ -1,5 +1,5 @@
 const types = {
-  FETCH_PRODUCTS: 'FETCH_PRODUCTS',
+  UPDATE_CART: 'UPDATE_CART',
 };
 
 export default types;

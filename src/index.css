@@ -21,3 +21,22 @@ code {
 .header {
   margin-bottom: 20px;
 }
+
+.card {
+  margin-bottom: 20px;
+}
+
+.card-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-image {
+  width: 100px;
+  height: 100px;
+}
+
+.row {
+  margin-bottom: 20px;
+}
