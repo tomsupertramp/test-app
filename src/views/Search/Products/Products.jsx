@@ -3,7 +3,7 @@ import React from 'react';
 import { map } from 'lodash';
 
 /* Components */
-import Card from '../Card';
+import Card from 'components/Card';
 
 const propTypes = {
   products: PropTypes.array,

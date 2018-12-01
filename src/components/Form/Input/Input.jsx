@@ -13,21 +13,25 @@ const propTypes = {
 const FormInput = ({
   name,
   field,
-  // form,
+  form: { touched, errors },
   label,
   placeholder,
   type,
-}) => (
-  <div>
-    <Label htmlFor={name}>{label}</Label>
-    <Input
-      {...field}
-      id={name}
-      placeholder={placeholder}
-      type={type}
-    />
-  </div>
-);
+}) => {
+  const error = touched[field.name] && errors[field.name];
+  return (
+    <div>
+      <Label htmlFor={name}>{label}</Label>
+      <Input
+        {...field}
+        id={name}
+        placeholder={placeholder}
+        type={type}
+      />
+      {error && <span className="text-danger">{error}</span>}
+    </div>
+  );
+};
 
 FormInput.propTypes = propTypes;
 

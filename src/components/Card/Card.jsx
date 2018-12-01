@@ -35,6 +35,7 @@ const ProductCard = ({
   inStock,
   image,
   handleClick,
+  isCart,
 }) => (
   <Card className="card">
     <Row>
@@ -49,7 +50,7 @@ const ProductCard = ({
           <Row>
             <Col><CardText>Color: {color}</CardText></Col>
             <Col><CardText>InStock: {inStock ? 'Yes' : 'No'}</CardText></Col>
-            <Col><Button onClick={handleClick}>Order</Button></Col>
+            {!isCart && <Col><Button onClick={handleClick}>Order</Button></Col>}
           </Row>
         </CardBody>
       </Col>

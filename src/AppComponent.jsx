@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 /* Components */
@@ -29,6 +29,7 @@ const AppComponent = ({ isAuthenticated }) => {
       <Row>
         <Col>
           <Route path="/" component={Component} />
+          <Redirect to="/" />
         </Col>
       </Row>
     </Container>

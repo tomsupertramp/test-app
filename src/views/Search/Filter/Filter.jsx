@@ -13,46 +13,40 @@ import Form, {
   Input,
 } from 'components/Form';
 
-/* eslint-disable */
-
 const propTypes = {
-  props: PropTypes.object,
+  handleSubmit: PropTypes.func,
 };
 
-const Filter = (props) => {
-  // console.log(props);
-  return (
-    <Form onSubmit={props.handleSubmit}>
-      <Row>
-        <Col>
-          <Datepicker label="Date From" name="dateFrom" />
-        </Col>
-        <Col>
-          <Datepicker label="Date To" name="dateTo" />
-        </Col>
-        <Col sm={{ size: 'auto', offset: 1 }}>
-          <Checkbox label="In stock only" name="inStock" />
-        </Col>
-      </Row>
-      <Row>
-        <Col>
-          <Input label="Price from" name="priceFrom" type="number" step="0.01" />
-        </Col>
-        <Col>
-          <Input label="Price to" name="priceTo" type="number" step="0.01" />
-        </Col>
-        <Col>
-          <Select label="Color" name="color" />
-        </Col>
-      </Row>
-    </Form>
-  );
-};
+const Filter = ({ handleSubmit }) => (
+  <Form onSubmit={handleSubmit}>
+    <Row>
+      <Col>
+        <Datepicker label="Date From" name="dateFrom" />
+      </Col>
+      <Col>
+        <Datepicker label="Date To" name="dateTo" />
+      </Col>
+      <Col sm={{ size: 2, offset: 2 }} className="align-middle">
+        <Checkbox label="In stock only" name="inStock" />
+      </Col>
+    </Row>
+    <Row>
+      <Col>
+        <Input label="Price from" name="priceFrom" type="number" step="0.01" />
+      </Col>
+      <Col>
+        <Input label="Price to" name="priceTo" type="number" step="0.01" />
+      </Col>
+      <Col>
+        <Select label="Color" name="color" />
+      </Col>
+    </Row>
+  </Form>
+);
 
 Filter.propTypes = propTypes;
 
 export default compose(
-
   withFormik({
     mapPropsToValues: () => ({
       dateFrom: null,
@@ -75,6 +69,6 @@ export default compose(
       if (!isEqual(values, this.props.values)) {
         autoSave();
       }
-    }
+    },
   }),
 )(Filter);
