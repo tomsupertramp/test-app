@@ -38,7 +38,7 @@ const SignupComponent = ({ handleSubmit, successSignup, error }) => (
         </FormGroup>
         <FormGroup>
           <Input
-            label="Password"
+            label="Confirm password"
             name="passwordConfirm"
             type="password"
           />

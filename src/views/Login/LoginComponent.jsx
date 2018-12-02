@@ -29,7 +29,7 @@ const LoginComponent = ({ handleSubmit, error }) => (
         </FormGroup>
         <FormGroup>
           <Input
-            label="Confirm password"
+            label="Password"
             name="password"
             type="password"
           />
