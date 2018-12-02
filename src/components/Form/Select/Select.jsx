@@ -7,9 +7,11 @@ const propTypes = {
   name: PropTypes.string,
   label: PropTypes.string,
   placeholder: PropTypes.string,
+  children: PropTypes.node,
 };
 
 const FormSelect = ({
+  children,
   name,
   label,
   placeholder,
@@ -23,11 +25,7 @@ const FormSelect = ({
       type="select"
       {...field}
     >
-      <option value="">Select</option>
-      <option>red</option>
-      <option>yellow</option>
-      <option>orange</option>
-      <option>green</option>
+      {children}
     </Input>
   </div>
 );

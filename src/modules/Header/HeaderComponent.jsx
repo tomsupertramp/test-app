@@ -1,3 +1,5 @@
+/* eslint react/jsx-one-expression-per-line:0 */
+
 import PropTypes from 'prop-types';
 import React from 'react';
 import {
@@ -32,10 +34,7 @@ const HeaderComponent = ({
     </LinkContainer>
     {isAuthenticated ? (
       <div>
-        Hello,
-        {' '}
-        {user}
-        !
+        Hello, {user}!
       </div>
     ) : (
       <Nav navbar>
@@ -57,9 +56,7 @@ const HeaderComponent = ({
         color="success"
         onClick={() => toggleCartModal()}
       >
-        Cart:
-        {' '}
-        {cartItemsCount}
+        Cart: {cartItemsCount}
       </Button>
     )}
     <Cart />

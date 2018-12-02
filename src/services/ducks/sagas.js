@@ -3,9 +3,12 @@ import {
   takeLatest,
 } from 'redux-saga/effects';
 import { push } from 'react-router-redux';
+import bcrypt from 'bcryptjs';
 
 /* Types */
 import types from './types';
+
+const salt = bcrypt.genSaltSync(10);
 
 function* signup({ values }) {
   try {
@@ -14,7 +17,8 @@ function* signup({ values }) {
     if (localStorage.getItem(username)) {
       yield put({ type: types.SIGNUP_FAILURE, error: 'User already exist' });
     } else {
-      localStorage.setItem(username, password);
+      const hash = bcrypt.hashSync(password, salt);
+      localStorage.setItem(username, hash);
       yield put({ type: types.SIGNUP_SUCCESS });
     }
   } catch (e) {
@@ -25,11 +29,11 @@ function* signup({ values }) {
 function* login({ values }) {
   try {
     const { username, password } = values;
-    if (!localStorage.getItem(username) || localStorage.getItem(username) !== password) {
+    if (!localStorage.getItem(username) || !bcrypt.compareSync(password, localStorage.getItem(username))) {
       yield put({ type: types.LOGIN_FAILURE, error: 'The username or password is incorrect' });
     } else {
-      yield put({ type: types.LOGIN_SUCCESS, user: username });
       yield put(push('/'));
+      yield put({ type: types.LOGIN_SUCCESS, user: username });
     }
   } catch (e) {
     yield put({ type: types.LOGIN_FAILURE, error: e.message });

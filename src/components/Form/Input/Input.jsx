@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { Input, Label } from 'reactstrap';
 import { Field } from 'formik';
+import NumberFormat from 'react-number-format';
 
 const propTypes = {
   name: PropTypes.string,
@@ -17,17 +18,30 @@ const FormInput = ({
   label,
   placeholder,
   type,
+  format,
+  ...props
 }) => {
   const error = touched[field.name] && errors[field.name];
   return (
     <div>
       <Label htmlFor={name}>{label}</Label>
-      <Input
-        {...field}
-        id={name}
-        placeholder={placeholder}
-        type={type}
-      />
+      {!format ? (
+        <Input
+          {...field}
+          id={name}
+          placeholder={placeholder}
+          type={type}
+        />
+      ) : (
+        <NumberFormat
+          {...field}
+          {...props}
+          id={name}
+          placeholder={placeholder}
+          type={type}
+        />
+      )}
+
       {error && <span className="text-danger">{error}</span>}
     </div>
   );

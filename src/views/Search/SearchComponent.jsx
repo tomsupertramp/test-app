@@ -22,10 +22,14 @@ const SearchComponent = ({ products, fetchProducts, updateCart }) => (
     </Row>
     <Row>
       <Col>
-        <Products
-          products={products}
-          updateCart={updateCart}
-        />
+        {products.length === 0 ? (
+          <div>No items...</div>
+        ) : (
+          <Products
+            products={products}
+            updateCart={updateCart}
+          />
+        )}
       </Col>
     </Row>
   </div>

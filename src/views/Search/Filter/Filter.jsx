@@ -32,13 +32,34 @@ const Filter = ({ handleSubmit }) => (
     </Row>
     <Row>
       <Col>
-        <Input label="Price from" name="priceFrom" type="number" step="0.01" />
+        <Input
+          label="Price from"
+          name="priceFrom"
+          thousandSeparator
+          format
+          decimalScale={2}
+          className="form-control"
+        />
       </Col>
       <Col>
-        <Input label="Price to" name="priceTo" type="number" step="0.01" />
+        <Input
+          label="Price to"
+          name="priceTo"
+          thousandSeparator
+          format
+          decimalScale={2}
+          className="form-control"
+        />
       </Col>
       <Col>
-        <Select label="Color" name="color" />
+        <Select label="Color" name="color">
+          <option value="">Select</option>
+          <option>black</option>
+          <option>red</option>
+          <option>yellow</option>
+          <option>orange</option>
+          <option>green</option>
+        </Select>
       </Col>
     </Row>
   </Form>

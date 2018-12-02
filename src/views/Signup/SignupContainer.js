@@ -11,7 +11,7 @@ import SignupComponent from './SignupComponent';
 
 const schema = Yup.object().shape({
   username: Yup.string()
-    .min(6)
+    .min(3)
     .required('Required'),
   password: Yup.string().required('Required'),
   passwordConfirm: Yup.string()

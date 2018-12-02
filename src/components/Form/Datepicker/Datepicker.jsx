@@ -5,7 +5,7 @@ import { Label } from 'reactstrap';
 
 /* Styles */
 import 'react-datepicker/dist/react-datepicker.css';
-/* eslint-disable */
+
 const FormDatepicker = ({
   className,
   form,
@@ -19,9 +19,6 @@ const FormDatepicker = ({
   const handleChange = (value) => {
     form.setFieldValue(field.name, value);
   };
-
-  // const { errors, touched } = form;
-  // const error = touched[field.name] && errors[field.name];
 
   return (
     <div>

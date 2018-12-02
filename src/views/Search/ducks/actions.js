@@ -1,4 +1,4 @@
-import { filter, inRange } from 'lodash';
+import { filter } from 'lodash';
 import moment from 'moment';
 
 /* Types */
@@ -36,7 +36,7 @@ const fetchProducts = (params) => {
           return item.price <= priceTo;
         }
 
-        return inRange(item.price, priceFrom, priceTo);
+        return item.price >= priceFrom && item.price <= priceTo;
       };
 
       const issueDateFilter = () => {

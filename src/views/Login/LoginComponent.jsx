@@ -7,7 +7,6 @@ import {
   Row,
   FormGroup,
 } from 'reactstrap';
-import { withFormik } from 'formik';
 
 /* Components */
 import Form, { Input } from 'components/Form';
@@ -45,12 +44,4 @@ const LoginComponent = ({ handleSubmit, error }) => (
 
 LoginComponent.propTypes = propTypes;
 
-export default withFormik({
-  mapPropsToValues: () => ({
-    username: '',
-    password: '',
-  }),
-  handleSubmit: (values, { props: { login } }) => {
-    login(values);
-  },
-})(LoginComponent);
+export default LoginComponent;
